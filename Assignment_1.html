@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>CSS3 Flexbox</title>
+    <link href= "style.css" rel="stylesheet" type="text/css" media="all"/>
+	
+    <style>
+        .body{
+            margin:0px;
+        }
+        nav{
+            display:flex; justify-content: space-between;
+        }
+        .head{
+            font-size: 20px;padding:5px;
+        }
+
+        .item{
+            font-size: 20px;padding:3px;margin:5px;
+        }
+
+        .box{
+           height:300px;  background-color: blue;margin: 0px;padding: 0px;
+           /* margin:0px; */
+        }
+
+        .text{
+            font-size:20px; text-align: center;line-height: 300px;
+        }
+
+        /* .content{
+            width:1200px;margin-left: auto;margin-right: auto;
+        }
+
+
+        .picture{
+            width:270px; padding:5px;margin:5px;
+            display:inline-block;vertical-align: top;
+        }
+
+        @media screen and (max-width:1200px){
+            .picture{width:450px;padding:1px;margin:1px}
+            .content{width:100%; text-align:center}
+        }
+
+        @media screen and (max-width: 600px){
+            
+            .content{width:100%; text-align:center}
+        } */
+        main{
+            display:flex;flex-wrap: wrap;
+            justify-content:center;
+            /* align-items: stretch; */
+        }
+
+        main>.pictures{
+            flex:auto;width:270px;margin:10px;
+
+        }
+
+
+
+        @media (max-width:1200px){
+            main>.pictures{
+                width:45%;
+                
+            }
+        }
+
+        @media(max-width:600px){
+            main>.pictures{
+                width:100%;
+            }
+            .item{
+                display:none;            
+                }
+        }
+
+    </style>
+</head>
+
+<body class="body">
+	<nav >
+        <div class="head">My Website</div>
+        <div>
+            <span class="item">Item 1</span>
+		    <span class="item">Item 2</span>
+		    <span class="item">Item 3</span>
+            <span class="item">Item 4</span>
+        </div>
+       
+	</nav>
+    <div class="box">
+        <div class="text">
+            Welcome to MyHome
+        </div>
+    </div>
+
+
+	<!-- RWD 回應式設計的關鍵動作：欄位變化
+         Flex 如何控制欄位的變化？
+         例如：4 欄 > 2 欄 > 1 欄
+
+         規劃：
+            1200px 以上的規劃： 4 欄，固定尺寸
+            500px ~ 1200px 之間的規劃：2 欄 ，彈性尺寸
+            500px 以下 ： 1 欄，彈性尺寸
+    -->
+
+    <!-- <div class="content">
+        <div class="picture" align="center">  <img src="1.jpg" width=270px margin=10px/></div>
+        <div class="picture" align="center">  <img src="2.jpg" width=270px margin=10px/></div>
+        <div class="picture" align="center">  <img src="3.jpg" width=270px margin=10px/></div>
+        <div class="picture" align="center">  <img src="4.jpg" width=270px margin=10px/></div>
+    </div>  -->
+    <main>
+        
+        <div class="pictures" align="center">  <img src="1.jpg" width=270px margin=10px/>
+        <br class="text"/>Item 1</div>
+        <div class="pictures" align="center">  <img src="2.jpg" width=270px margin=10px/>
+        <br/>Item 2</div>
+        <div class="pictures" align="center">  <img src="3.jpg" width=270px margin=10px/>
+        <br/>Item 3</div>
+        <div class="pictures" align="center">  <img src="4.jpg" width=270px margin=10px/>
+        <br/>Item 4</div>
+        <div class="pictures" align="center">  <img src="5.jpg" width=270px margin=10px/>
+        <br/>Item 5</div>
+        <div class="pictures" align="center">  <img src="6.jpg" width=270px margin=10px/>
+        <br/>Item 6</div>
+        <div class="pictures" align="center">  <img src="7.jpg" width=270px margin=10px/>
+        <br/>Item 7</div>
+        <div class="pictures" align="center">  <img src="8.jpg" width=270px margin=10px/>
+        <br/>Item 8</div>
+
+    </main>
+</body>
+</html>
