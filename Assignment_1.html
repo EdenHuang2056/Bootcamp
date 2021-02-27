@@ -17,11 +17,14 @@
             font-size: 20px;padding:5px;
         }
 
-        .item{
-            font-size: 20px;padding:3px;margin:5px;
+        .item{border: 1px solid green;
+            font-size: 20px;padding:3px;margin:6px;
         }
-        .icon{
-            display: none; height: 20px;
+        .icon{border: 1px solid gold;
+            display: none;flex:none;
+        }
+        .icon img{
+            width: 40px;
         }
 
         .box{
@@ -32,30 +35,10 @@
         .text{
             font-size:20px; text-align: center;line-height: 300px;
         }
-
-        /* .content{
-            width:1200px;margin-left: auto;margin-right: auto;
-        }
-
-
-        .picture{
-            width:270px; padding:5px;margin:5px;
-            display:inline-block;vertical-align: top;
-        }
-
-        @media screen and (max-width:1200px){
-            .picture{width:450px;padding:1px;margin:1px}
-            .content{width:100%; text-align:center}
-        }
-
-        @media screen and (max-width: 600px){
-            
-            .content{width:100%; text-align:center}
-        } */
         main{
             display:flex;flex-wrap: wrap;
             max-width: 1200px;
-            justify-content:flex-end;
+            justify-content:center;
         }
         .pictures{
             flex:auto;margin:10px;width: 270px;
@@ -79,7 +62,8 @@
                 display:none;            
                 }
             .icon{
-                display: block;
+                display: block; justify-content: center;
+
             }
         }
 
@@ -96,7 +80,7 @@
             <span class="item">Item 4</span>
         </div>
         <div class="icon">
-            <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png" width=20px/>
+            <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png" />
         </div>
 	</nav>
     <div class="box">
@@ -104,15 +88,18 @@
             Welcome to MyHome
         </div>
     </div>
+
+
 	<!-- RWD 回應式設計的關鍵動作：欄位變化
          Flex 如何控制欄位的變化？
          例如：4 欄 > 2 欄 > 1 欄
 
          規劃：
             1200px 以上的規劃： 4 欄，固定尺寸
-            500px ~ 1200px 之間的規劃：2 欄 ，彈性尺寸
-            500px 以下 ： 1 欄，彈性尺寸
+            600px ~ 1200px 之間的規劃：2 欄 ，彈性尺寸
+            600px 以下 ： 1 欄，彈性尺寸
     -->
+
     <main>
         
         <div class="pictures" >  <img src="1.jpg" width=270px margin=10px/>
