@@ -20,6 +20,9 @@
         .item{
             font-size: 20px;padding:3px;margin:5px;
         }
+        .icon{
+            display: none; height: 20px;
+        }
 
         .box{
            height:300px;  background-color: blue;margin: 0px;padding: 0px;
@@ -51,38 +54,40 @@
         } */
         main{
             display:flex;flex-wrap: wrap;
-            justify-content:center;
-            /* align-items: stretch; */
+            max-width: 1200px;
+            justify-content:flex-end;
         }
-
-        main>.pictures{
-            flex:auto;width:270px;margin:10px;
-
+        .pictures{
+            flex:auto;margin:10px;width: 270px;
+            text-align: center;
         }
-
-
-
+        .pictures img{
+            width:100%;
+            
+        }
         @media (max-width:1200px){
-            main>.pictures{
-                width:45%;
+            .pictures{
+                width:45%;display:block;
                 
-            }
+            }  
         }
-
         @media(max-width:600px){
-            main>.pictures{
-                width:100%;
+            .pictures{
+                width:90%;
             }
             .item{
                 display:none;            
                 }
+            .icon{
+                display: block;
+            }
         }
 
     </style>
 </head>
 
 <body class="body">
-	<nav >
+	<nav>
         <div class="head">My Website</div>
         <div>
             <span class="item">Item 1</span>
@@ -90,15 +95,15 @@
 		    <span class="item">Item 3</span>
             <span class="item">Item 4</span>
         </div>
-       
+        <div class="icon">
+            <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png" width=20px/>
+        </div>
 	</nav>
     <div class="box">
         <div class="text">
             Welcome to MyHome
         </div>
     </div>
-
-
 	<!-- RWD 回應式設計的關鍵動作：欄位變化
          Flex 如何控制欄位的變化？
          例如：4 欄 > 2 欄 > 1 欄
@@ -108,30 +113,23 @@
             500px ~ 1200px 之間的規劃：2 欄 ，彈性尺寸
             500px 以下 ： 1 欄，彈性尺寸
     -->
-
-    <!-- <div class="content">
-        <div class="picture" align="center">  <img src="1.jpg" width=270px margin=10px/></div>
-        <div class="picture" align="center">  <img src="2.jpg" width=270px margin=10px/></div>
-        <div class="picture" align="center">  <img src="3.jpg" width=270px margin=10px/></div>
-        <div class="picture" align="center">  <img src="4.jpg" width=270px margin=10px/></div>
-    </div>  -->
     <main>
         
-        <div class="pictures" align="center">  <img src="1.jpg" width=270px margin=10px/>
-        <br class="text"/>Item 1</div>
-        <div class="pictures" align="center">  <img src="2.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="1.jpg" width=270px margin=10px/>
+        <br/>Item 1</div>
+        <div class="pictures" >  <img src="2.jpg" width=270px margin=10px/>
         <br/>Item 2</div>
-        <div class="pictures" align="center">  <img src="3.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="3.jpg" width=270px margin=10px/>
         <br/>Item 3</div>
-        <div class="pictures" align="center">  <img src="4.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="9.jpg" width=270px margin=10px/>
         <br/>Item 4</div>
-        <div class="pictures" align="center">  <img src="5.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="5.jpg" width=270px margin=10px/>
         <br/>Item 5</div>
-        <div class="pictures" align="center">  <img src="6.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="6.jpg" width=270px margin=10px/>
         <br/>Item 6</div>
-        <div class="pictures" align="center">  <img src="7.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="7.jpg" width=270px margin=10px/>
         <br/>Item 7</div>
-        <div class="pictures" align="center">  <img src="8.jpg" width=270px margin=10px/>
+        <div class="pictures" >  <img src="8.jpg" width=270px margin=10px/>
         <br/>Item 8</div>
 
     </main>
