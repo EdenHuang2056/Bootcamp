@@ -3,18 +3,20 @@ def main():
 
     def maxProduct(nums):
     # 請用你的程式補完這個函式的區塊
+        max = 0
         a = 0
-        b = 0
 
         for i in range(len(nums)):
-            if nums[i] > b:
-                b = nums[i]
+            for j in range(i+1, len(nums)):
+                a = nums[i]*nums[j]
+                if i == 0 and j == 1:
+                    max = a
+                if a > max:
+                    max = a
 
-                if b > a:
-                    b = a
-                    a = nums[i]
+        print(max)
 
-        print(int(a*b))
+
 
     maxProduct([5, 20, 2, 6])
     # 得到 120 因為 20 和 6 相乘得到最大值
