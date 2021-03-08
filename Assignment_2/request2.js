@@ -13,9 +13,8 @@ function avg(data){
     }
     j+=1;
     Avg = Sum / Count;
-    document.write(Avg)
+    console.log(Avg)
 }
-
 
 avg({
 "count":3,
