@@ -30,7 +30,15 @@ def main():
             line = str(line)
             line = "http" + line
             file.write(line + "\n")
-
+if __name__ == '__main__':
+	main()
+		
+		
+	
+	
+	
+	
+		
 # 	for landmark in big_list:
 # 	    title = file.write(landmark["stitle"]+",")
 # 	    longitude = file.write(landmark["longitude"]+",")
@@ -56,8 +64,7 @@ def main():
 
 
 
-if __name__ == '__main__':
-	main()
+
 
 
 
