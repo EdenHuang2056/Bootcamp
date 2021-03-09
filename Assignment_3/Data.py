@@ -20,8 +20,8 @@ def main():
             latitude = file.write(landmark["latitude"]+",")
             line = file.write(landmark["file"] +"\n")
 
-            # line = str(line)
-            # web = line.split(".")
+            line = str(line)
+            web = line.split(".jpg" or ".pgn")
 
     # title=data["result"]["results"][1]["stitle"]
     #
