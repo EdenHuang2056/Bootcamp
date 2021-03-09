@@ -13,29 +13,46 @@ def main():
     small_list = []
 
     with open("data.txt", "w", encoding="utf-8") as file:
+		
+	for landmark in big_list:
+            title = landmark["stitle"]
+            file.write(title+",")
 
-        for landmark in big_list:
-            title = file.write(landmark["stitle"]+",")
-            longitude = file.write(landmark["longitude"]+",")
-            latitude = file.write(landmark["latitude"]+",")
-            line = file.write(landmark["file"] +"\n")
+            longitude = landmark["longitude"]
+            file.write(longitude+",")
 
+            latitude = landmark["latitude"]
+            file.write(latitude+",")
+
+            line = landmark["file"]
+            line = line.split("http")
+            line = line[1]
             line = str(line)
-            web = line.split(".jpg" or ".pgn")
+            line = "http" + line
+            file.write(line + "\n")
 
-    # title=data["result"]["results"][1]["stitle"]
-    #
-    # longitude=data["result"]["results"][3]["longitude"]
-    #
-    # web=data["result"]["results"][14]["file"]
-    #
-    # latitude=data["result"]["results"][16]["latitude"]
-    #
-    # print(big_list)
-    # print(title)
-    # print(longitude)
-    # print(web)
-    # print(latitude)
+# 	for landmark in big_list:
+# 	    title = file.write(landmark["stitle"]+",")
+# 	    longitude = file.write(landmark["longitude"]+",")
+# 	    latitude = file.write(landmark["latitude"]+",")
+# 	    line = file.write(landmark["file"] +"\n")
+
+# 	    line = str(line)
+# 	    web = line.split(".jpg")
+
+#     title=data["result"]["results"][1]["stitle"]
+    
+#     longitude=data["result"]["results"][3]["longitude"]
+    
+#     web=data["result"]["results"][14]["file"]
+    
+#     latitude=data["result"]["results"][16]["latitude"]
+    
+#     print(big_list)
+#     print(title)
+#     print(longitude)
+#     print(web)
+#     print(latitude)
 
 
 
