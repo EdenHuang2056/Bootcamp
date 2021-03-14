@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>CSS3 Flexbox</title>
+    <link type="text/css" media="all"/>
+	
+    <style>
+        .body{
+            margin:0px;
+        }
+        nav{
+            display:flex; justify-content: space-between;
+        }
+        .head{
+            font-size: 20px;padding:5px;
+        }
+
+        .item{
+            font-size: 20px;padding:3px;margin:6px;
+        }
+        .icon{
+            display: none;flex:none;
+        }
+        .icon img{
+            width: 40px;
+        }
+
+        .textbox{
+           height:300px;  background-color: blue;margin: 0px;padding: 0px;
+        }
+
+        .text{
+            font-size:20px; text-align: center;line-height: 300px;
+        }
+
+        main{
+            display:flex;flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .album{
+            display:flex;flex-wrap: wrap;
+            justify-content: center;
+            margin: auto;
+            width: 100%;
+        }
+        
+        .pictures{
+            flex:auto;margin:8px;max-width:270px;
+            text-align: center;
+            
+        }
+        .pictures img{
+            width:90%; 
+        }
+        .photo{
+            width:100%; margin:auto;
+        }
+        @media (max-width:1200px){
+            .pictures{
+                width:45%;display:block;
+                max-width:500px; 
+            }  
+        }
+        @media(max-width:600px){
+            .pictures{
+                width:90%;
+            }
+            .item{
+                display:none;            
+                }
+            .icon{
+                display: block; justify-content: center;
+
+            }
+        }
+
+    </style>
+
+<script>
+
+    // 先顯示 Loading 的訊息
+    // let list = document.getElementById("list");
+    // list.innerHTML = "... Loading ...";
+    // 透過 AJAX fetch API 連線到遠端的網址，抓取資料
+    /*
+        fetch(網址).then(function(respones){
+            // Response 物件.代表伺服器的回應       
+        })       
+    */ 
+    let src = "https://padax.github.io/taipei-day-trip-resources/taipei-attractions.json";
+    fetch(src).then(function(response){
+        // console.log(re  sponse);
+        // return response.text(); //用字串的方式取回資料
+        return response.json(); //將資料用 JSON 的格式詮釋成：物件和陣列的組合
+    }).then(function(result){
+        // console.log("最終的資料", result.toUpprtCase()); //字串的形式很難用,將資料變成大寫
+        // console.log("最終的資料", result);
+        //打抓到的資料放到畫面上
+        // list.innerHTML = "";
+        let title;
+        let web;
+        for(let i = 0; i<8; i++){
+            title = result.result.results[i].stitle;
+            console.log(title);
+
+            web = result.result.results[i].file;
+            // console.log(typeof(web));
+            web = web.split("http");
+            web = "http" + web[1];
+
+            console.log(web);
+            // console.log(proudct); //印出資料
+            // list.innerHTML +=s product.bold() +  "<hr/>";
+
+            var box = document.createElement('div');
+            box.className = "pictures";
+
+            var photobox = document.createElement('div');
+            photobox.className = "photo";
+
+            box.appendChild(photobox);
+
+            var imgbox = document.createElement('img');
+            imgbox.src = web;
+            photobox.appendChild(imgbox);
+
+            var titlebox = document.createElement('div');
+            title.className = 'title';
+            box.appendChild(titlebox);
+
+            var titlename = document.createElement('p');
+            titlebox.appendChild(titlename);
+            titlename.innerText = title;
+            
+            document.getElementById("content").appendChild(box);
+
+        }
+    });
+
+</script>   
+
+
+</head>
+
+<body class="body">
+	<nav>
+        <div class="head">My Website</div>
+        <div>
+            <span class="item">Item 1</span>
+		    <span class="item">Item 2</span>
+		    <span class="item">Item 3</span>
+            <span class="item">Item 4</span>
+        </div>
+        <div class="icon">
+            <img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png" />
+        </div>
+	</nav>
+    
+    <div class="textbox">
+        <div class="text">
+            Welcome to MyHome
+        </div>
+    </div>
+
+
+
+    
+<main>    
+    <!-- <div class="pictures" >  <img src="1.jpg"  class = "photo"/>
+        <br/ class= "title">title</div> -->
+    <div class = "album" id = "content"></div>
+</main>
+</body>
+</html>
