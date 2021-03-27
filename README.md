@@ -1,7 +1,10 @@
 # Bootcamp
 
 
-![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/1.png)"/n"
+![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/1.png)
+
+
+
 ![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/2.png)
 ![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/3.png)
 ![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/4.png)
