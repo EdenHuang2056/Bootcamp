@@ -18,7 +18,7 @@ Picture 4
 
 Picture 5
 
-![image](https://github.com/EdenHuang2056/Bootcamp/blob/main/5.png)
+
 
 Picture 6
 
