@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+    <title>我的首頁</title>
+</head>
+<style>
+     .box{
+            color:white; font-size: 60px; background-color: darkblue; 
+            text-align: center;margin: 0px; padding: 0px; 
+            height: 300px; line-height: 300px;
+        }
+
+    .form{
+        text-align: center; margin: 8px;padding: 8px;
+    }
+</style>
+
+
+<body>
+    <div class = "box"> 歡迎光臨，請註冊登入系統。</div>
+    <form action = "/signup" class = "form"  method ="POST">
+
+        <h1>註冊帳號</h1>
+        姓名<input type = "text" class = "form" name = "name"/ >
+        </br>
+        帳號<input type = "text" class = "form" name = "username"/ >
+        </br>
+        密碼<input type = "password" class = "form" name = "password"/ >
+        <br/>
+        <button class = "form">註冊</button>
+        <hr/>
+    </form>
+    <form action = "/signin" class = "form"  method ="POST">
+
+        <h1>登入</h1>
+        帳號<input type = "text" class = "form" name = "username"/ >
+        </br>
+        密碼<input type = "password" class = "form" name = "password"/ >
+        <br/>
+        <button class = "form">登入</button
+
+    </form>
+
+</body>
+
+</html>
