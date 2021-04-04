@@ -89,11 +89,12 @@ def signin():
 
     mycursor.execute("SELECT name,username ,password FROM user ")
     result1 = mycursor.fetchall()
-    print(result1)
+    # print(result1)
     for i in range(len(result1)):
-        print(type(result1[i][1]))
+        # print(type(result1[i][1]))
         if result1[i][1] == request.values["username"] and result1[i][2] == request.values["password"]:
             session["name"] = result1[i][0]
+            print(result1)
             return redirect("/member")
     return redirect("/error/?message=帳號與密碼錯誤")
     # if request.values["username"]=="test"and request.values["password"]=="test":
@@ -112,7 +113,7 @@ def signin():
 
 @runapp.route("/member")
 def success():
-    if session.get("user"):
+    if session.get("username"):
         return render_template("member.html",nametitle=session["name"])
     else:
         return redirect("/")
@@ -132,4 +133,5 @@ runapp.run(port = 3000)
 
 if __name__ == '__main__':
     main()
+
 
