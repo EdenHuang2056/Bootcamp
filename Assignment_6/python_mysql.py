@@ -56,22 +56,30 @@ def index():
 def signup():
 
     # abc = request.values["username"]
-    mycursor.execute("SELECT username FROM user" )
-    result = mycursor.fetchall()
+    mycursor.execute(f"SELECT * FROM user where username ='{request.values['username']}'")
+    result = mycursor.fetchone()
+    if result:
+        return redirect("/error/?message=帳號已被註冊")
+    else:
+        sql = "INSERT INTO user (name, username, password) VALUES (%s, %s, %s)"
+        val = (str(request.values["name"]), str(request.values["username"]), str(request.values["password"]))
+        mycursor.execute(sql, val)
+        mydb.commit()
+        return render_template("signin.html")
     # print("SELECT username FROM user where username = "+str(request.values['username']))
     # print("SELECT username FROM user where username = request.values['username']")
     # print(result)
     # print((str(request.values["username"]),))
     # print(request.values["username"])
 
-    if (str(request.values["username"]),) not in result:
-        sql = "INSERT INTO user (name, username, password) VALUES (%s, %s, %s)"
-        val = (str(request.values["name"]), str(request.values["username"]), str(request.values["password"]))
-        mycursor.execute(sql, val)
-        mydb.commit()
-        return render_template("signin.html")
-    else:
-        return redirect("/error/?message=帳號已被註冊")
+    # if (str(request.values["username"]),) not in result:
+        # sql = "INSERT INTO user (name, username, password) VALUES (%s, %s, %s)"
+        # val = (str(request.values["name"]), str(request.values["username"]), str(request.values["password"]))
+        # mycursor.execute(sql, val)
+        # mydb.commit()
+        # return render_template("signin.html")
+    # else:
+    #     return redirect("/error/?message=帳號已被註冊")
 
 @runapp.route("/signin", methods = ["POST"])
 def signin():
@@ -87,16 +95,17 @@ def signin():
     # print(request.values["username"])
     # print(request.values["password"])
 
-    mycursor.execute("SELECT name,username ,password FROM user ")
-    result1 = mycursor.fetchall()
+    mycursor.execute(f"SELECT name,username,password FROM user where username='{request.form['username']}'")
+    result1 = mycursor.fetchone()
     # print(result1)
-    for i in range(len(result1)):
-        # print(type(result1[i][1]))
-        if result1[i][1] == request.values["username"] and result1[i][2] == request.values["password"]:
-            session["name"] = result1[i][0]
-            print(result1)
-            return redirect("/member")
-    return redirect("/error/?message=帳號與密碼錯誤")
+    # for i in range(len(result1)):
+    # print(type(result1[i][1]))
+    if result1[1] == request.values["username"] and result1[2] == request.values["password"]:
+        session["name"] = result1[0]
+        # print(result1)
+        return redirect("/member")
+    else:    
+        return redirect("/error/?message=帳號與密碼錯誤")
     # if request.values["username"]=="test"and request.values["password"]=="test":
         # session["username"] = request.values["username"]
         # session["password"] = request.values["password"]
@@ -133,5 +142,4 @@ runapp.run(port = 3000)
 
 if __name__ == '__main__':
     main()
-
 
