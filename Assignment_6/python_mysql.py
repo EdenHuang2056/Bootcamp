@@ -13,14 +13,7 @@ runapp = Flask(__name__, static_folder="static", static_url_path="/")
 runapp.secret_key = b'\xe8s\xb9\x0e\xddZ \xc3\x80\xa5\x1a\x11\x99J\xe7V'
 
 
-mydb = mysql.connector.connect(
-    host="127.0.0.1",
-    username="root",
-    password="!nctu820228",
-    database="website"
-)
 
-mycursor = mydb.cursor()
 
 # mycursor.execute("CREATE DATABASE myhome")
 
