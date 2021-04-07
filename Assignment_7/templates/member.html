@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "utf-8"/>
+    <title>登入成功</title>
+
+    <style>
+        .box{
+            color:white; font-size: 60px; background-color: darkblue; 
+            text-align: center;margin: 0px; padding: 0px; 
+            height: 300px; line-height: 300px;
+        }
+
+        .content{
+            margin: auto;padding: 20px;text-align: center;
+        }
+
+        .btn{
+        text-align: center; margin: auto ;padding: 8px;
+        display: block;
+        }
+
+        .form{
+        text-align: center; margin: 8px;padding: 8px;
+        }
+
+        .get_value{
+        text-align: center; margin: 8px;padding: 8px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <form action = "/member" >
+
+    <div class = "box"> {{nametitle}}歡迎光臨，這是會員頁</div>
+    <div class = "content">恭喜您，成功登入系統。</div>
+    </form>
+    <form method="get" action="/signout" >
+        <button type="submit" class="btn">登出系統</button>
+    </form>
+    
+    <div method="get" action="/member" class="form">
+        <h1 class = "content">查詢會員姓名</h1>
+        <input type = "text" class = "form" id = "research" name = "username"/ >
+        <button class="get_value" id = "id">查詢</button>
+        <div id = "content">   </div>
+
+    </div>
+
+</body>
+
+<script>
+
+    var btn = document.getElementById("id");
+    console.log(btn)
+    var handler = function(){
+        var username_value = document.getElementById("research").value;
+        // console.log(username_value)
+        // console.log(typeof(username_value))
+        let src = ("http://127.0.0.1:3000/api/user?username="+username_value);
+        console.log(src)
+
+        fetch(src).then(function(response){
+    // console.log(re  sponse);
+    // return response.text(); //用字串的方式取回資料
+            return response.json(); //將資料用 JSON 的格式詮釋成：物件和陣列的組合
+        }).then(function(result){     
+        console.log(result)
+        var search_name = result.data.name;
+        let search_username = result.data.username;
+
+        console.log(search_name)
+        console.log(search_username)
+
+    var titlebox = document.createElement('div');
+    titlebox.className = 'form';
+    // box.appendChild(titlebox);
+
+    var titlename = document.createElement('span');
+    titlebox.appendChild(titlename);
+    titlename.innerText = search_name;
+    var titlename = document.createElement('span');
+    titlebox.appendChild(titlename);
+    titlename.innerText = "(" +search_username +")";
+
+
+    document.getElementById("content").appendChild(titlebox);
+    // var req = new XMLHttpRequest();
+    // req.open("get", "http://127.0.0.1:3000/api/user?username="+ input_name)
+    //     var content = document.getElementById("content")
+    //     content.innerHTML = this.responseText;
+    // req.send()
+    });
+    };
+    btn.addEventListener("click", handler);
+</script>
+
+
+</html>
