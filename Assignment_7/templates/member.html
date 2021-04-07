@@ -64,8 +64,7 @@
         console.log(src)
 
         fetch(src).then(function(response){
-    // console.log(re  sponse);
-    // return response.text(); //用字串的方式取回資料
+    
             return response.json(); //將資料用 JSON 的格式詮釋成：物件和陣列的組合
         }).then(function(result){     
         console.log(result)
@@ -77,7 +76,7 @@
 
     var titlebox = document.createElement('div');
     titlebox.className = 'form';
-    // box.appendChild(titlebox);
+  
 
     var titlename = document.createElement('span');
     titlebox.appendChild(titlename);
@@ -88,11 +87,7 @@
 
 
     document.getElementById("content").appendChild(titlebox);
-    // var req = new XMLHttpRequest();
-    // req.open("get", "http://127.0.0.1:3000/api/user?username="+ input_name)
-    //     var content = document.getElementById("content")
-    //     content.innerHTML = this.responseText;
-    // req.send()
+ 
     });
     };
     btn.addEventListener("click", handler);
